@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <title>1-topshiriq: Login Forma</title>
+    
+    <style>
+        /* 1. Element selektor (Teg nomining o'ziga stil berish) */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        /* 2. Class selektor (Nuqta . bilan boshlanadi) */
+        .login-box {
+            background-color: #ffffff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            width: 300px;
+        }
+
+        /* 3. ID selektor (Panjara # bilan boshlanadi) */
+        #email {
+            border: 2px solid #4CAF50;
+        }
+
+        /* 4. Guruh selektori (Bir nechta tegni vergul bilan ajratib stil berish) */
+        h2, label, p {
+            color: #333333;
+            margin-bottom: 8px;
+        }
+
+        /* 5. Spetsifiklik (Specificity) namoyishi:
+           Button elementiga ham element, ham class orqali rang beramiz. */
+        
+        button {
+            background-color: red; /* Element selektori - qizil rang */
+            color: white;
+            padding: 10px;
+            border: none;
+            width: 100%;
+            cursor: pointer;
+        }
+
+        .btn-submit {
+            background-color: green; /* Class selektori - yashil rang */
+        }
+
+        /* IZOH: Tugma rangi yashil (green) bo'lib chiqadi. 
+           Chunki CSS'da Class selektorining kuchi (spetsifikligi) 
+           oddiy Element selektoridan yuqori turadi. */
+    </style>
+</head>
+<body>
+
+    <div class="login-box">
+        <h2>Tizimga kirish</h2>
+        <form>
+            <label for="email">E-mail manzilingiz:</label>
+            <input type="email" id="email" placeholder="example@gmail.com">
+
+            <label for="password">Parol:</label>
+            <input type="password" id="password" placeholder="Parolingizni kiriting">
+
+            <button type="submit" class="btn-submit">Kirish</button>
+        </form>
+        <p>A'zo emasmisiz? Ro'yxatdan o'ting.</p>
+    </div>
+
+</body>
+</html>

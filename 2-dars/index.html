@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Koinot sirlarini o'rganish </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* 1. Butun ekran hajmi (100vh) */
+        section {
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            /* 2. Background xossalari va Rang formatlari */
+            /* HEX format: zaxira fon rangi */
+            background-color: #1a1a2e; 
+            
+            /* Orqa fonga mos keladigan rasm */
+            background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1920'); 
+            
+            /* Cover qiymati orqali rasm blokni to'liq qoplashi */
+            background-size: cover; 
+            
+            /* Rasm markazlashtirilsin */
+            background-position: center; 
+        }
+
+        .card {
+            /* RGBA format: shaffof qora fon */
+            background-color: rgba(10, 20, 40, 0.75); 
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 650px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .card h1 {
+            /* Nomlangan rang: gold */
+            color: gold; 
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .card p {
+            /* Nomlangan rang: white */
+            color: white; 
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .card button {
+            /* HEX format: ochiq moviy rang */
+            background-color: #38bdf8; 
+            color: #000000;
+            border: none;
+            padding: 12px 30px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .card button:hover {
+            opacity: 0.9;
+        }
+
+      </style>
+   </head>
+   <body>
+       <section>
+         <div class="card">
+            <h1>Koinot Sirlarini O'rganamiz</h1>
+            <p>
+                Ushbu loyiha CSS-da HEX, RGB va nomlangan ranglar hamda background-size, 
+                background-position xossalari orqali to'liq ekran hajmini egallashni ko'rsatib beradi.
+            </p>
+            <button>Boshlash</button>
+         </div>
+       </section>
+   </body>
+</html>
