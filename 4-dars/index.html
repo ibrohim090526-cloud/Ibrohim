@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Svetofor</title>
+    <style>
+        
+        *{
+           box-sizing: border-box;
+           
+        }  
+        /* 
+           Konteynerning umumiy balandligi hisobi:
+           (3 * 80px chiroq) + (2 * 15px oraliq margin) + (15px yuqori padding + 15px pastki padding)
+            = 240px + 30px + 30px = 300px
+        */
+      
+        .Svetofor{
+            width: 120px;
+            border-radius: 20px;
+            padding: 15px;
+            background-color: #000000
+            /* umumiy balandligi: 300px */
+            
+        }
+        .chiroq {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 3px solid #222;
+            margin-bottom: 15px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .qizil{
+            background-color: red;
+        }
+        .sariq{
+            background-color: yellow;
+        }
+        .yashil{
+            background-color: green;
+        }
+     
+    </style>
+</head>
+<body>
+    <div class="Svetofor">
+        
+        <div class="chiroq qizil" ></div>
+        <div class="chiroq sariq"></div>
+        <div class="chiroq yashil"></div>
+
+    </div>
+
+</body>
+</html>
