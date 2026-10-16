@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<style>
+.katak{
+background-color: aliceblue;
+display: inline-block;
+color: black;
+padding: 10px;
+border: 1px solid black;
+margin: 5px;
+}
+</style>
+</head>
+<body>
+<div id="natija"></div>
+<script>
+const text = document.getElementById("natija");
+// text.innerHTML = "<button>Kirish</button>"
+// text.innerHTML = text.innerHTML + "<br><button>Chiqish</button> <br>"
+let i = 1;
+while (i <= 10){
+text.innerHTML = text.innerHTML + "<span class='katak'>" + i + "ibrohim" + "</span>";
+i++;
+}
+</script>
+</body>
+</html>

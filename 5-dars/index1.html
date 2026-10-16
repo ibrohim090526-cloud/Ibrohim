@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .katak {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            border: 1px solid black;
+            text-align: center;
+            line-height: 30px;
+            margin: 2px;
+        }
+    </style>
+</head>
+<body>
+    <h1>1-masala: 10 ta paragraf</h1>
+    <div id="salomlar"></div>
+
+    <script>
+        const natija = document.getElementById("salomlar");
+        for(let i = 1; i <= 10; i++){
+            natija.innerHTML = natija.innerHTML + `<p class="salom-text">Salom, Javascript! </p>`;
+        }
+    </script>
+
+    <h1>2-masala: 2 dan 40 gacha juft sonlar</h1>
+    <div id="text"></div>
+
+    <script>
+        const text = document.getElementById("text");
+
+        for (let i = 2; i <= 40; i += 2) {
+            text.innerHTML = text.innerHTML + `<div class="katak">${i}</div>`;
+        }
+    </script>
+    
+    <script src="scrip1.js"></script>
+    <script src="script2.js"></script>
+
+</body>
+</html>
