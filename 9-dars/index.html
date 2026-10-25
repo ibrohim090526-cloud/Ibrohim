@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body>
+   <h1>JavaScript funksiyalari</h1>
+   <h2>1. Sonning kvadrati</h2>
+   <input id="son1" type="number" placeholder="Son kiriting">
+   <button id="btn1" onclick="natija1()">Hisoblash</button>
+   <p id="natija1"></p>
+
+   <h2>2. Juft yoki toq</h2>
+   <input id="son2" type="number" placeholder="Son kiriting">
+   <button id="btn2" onclick="natija2()">Tekshirish</button>
+   <p id="natija2"></p>
+
+   <h2>3. O'rtacha ball va baho</h2>
+   <input id="baho1" type="number" placeholder="1-sonni kiriting">
+   <input id="baho2" type="number" placeholder="2-sonni kiriting">
+   <input id="baho3" type="number" placeholder="3-sonni kiriting">
+   <button id="btn3" onclick="natija3">Baholash</button>
+   <p id="natija3"></p>
+
+   <script>
+      function kvadratgaKotar(son){
+         return son * son;
+      }
+
+      function juftToqAniqla(son){
+         if (son % 2 == 0){
+            return "Juft";
+         }else{
+            return "Toq";
+         }
+      }
+
+      function ortachaniTop(son1, son2, son3 = 32){
+         let yigindi = son1 + son2 + son3;
+         return Math.round(yigindi / 3);
+      }
+  
+      function natija1(){
+         const son = document.getElementById("son1").value;
+         const natija = kvadratgaKotar(son);
+         document.getElementById("natija1").innerText = "Sonning kvadrati: " +  natija;
+         document.getElementById("son1").value = null
+
+      }
+
+      function natija2(){
+         const son = document.getElementById("son2").value;
+         const natija = juftToqAniqla(son);
+         document.getElementById("natija2").innerText =   natija;
+         document.getElementById("son2").value = null
+      }
+
+      function natija3(){
+         const son = document.getElementById("baho1").value;
+         const natija = ortachaniTop(son);
+         document.getElementById("natija3").innerText =  natija;
+         document.getElementById("baho1").value = null
+      }
+
+     
+   </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

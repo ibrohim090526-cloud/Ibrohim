@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>JavaScript funksiyalari</h1>
+    <h2>1. To'rtburchakning yuzi va perimetri</h2>
+    <input type="number" id="eni" placeholder="Eni">
+    <input type="number" id="boyi" placeholder="Bo'yi">
+    <button onclick="hisobla()">Hisoblash</button>
+    <p id="natija1"></p>
+    <br>
+
+    <h2>2. Uchta sondan eng kattasi</h2>
+    <input type="number" id="son1" placeholder="1-son">
+    <input type="number" id="son2" placeholder="2-son">
+    <input type="number" id="son3" placeholder="3-son">
+    <button onclick="aniqlash()">Aniqlash</button>
+    <p id="natija2"></p>
+
+    <script>
+        function hisobla(){
+            let a = Number(document.getElementById("eni").value); 
+            let b = Number(document.getElementById("boyi").value); 
+            let yuz = a * b;
+            let perimetri = 2 * (a + b);
+            document.getElementById("natija1").innerText = "Yuzi: " + yuz + " Perimetri: " + perimetri;
+        }
+
+        function aniqlash(){
+            let x = Number(document.getElementById("son1").value)
+            let y = Number(document.getElementById("son2").value)
+            let z = Number(document.getElementById("son3").value)
+
+            let katta = x;
+
+            if (y > katta) {
+                katta = y;
+            }
+             if (z > katta) {
+                katta = z;
+            }
+            document.getElementById("natija2").innerHTML = "Eng katta son: " + katta;
+            
+        }
+    </script>
+</body>
+</html>
