@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Ism tekshirgichi</h2>
+    <input type="text" id="ismInput" placeholder="Ismingizni yozing">
+    <button onclick="tekshir()">Tekshirish</button>
+    <p id="natija"></p>
+
+    <script>
+        function tekshir(){
+            let ism = document.getElementById("ismInput").value.trim();
+            let p = document.getElementById("natija")
+
+            if (ism.length < 3){
+                p.textContent = "Ism juda qisqa";
+            }else{
+                let chiroyliIsm = ism.charAt(0).toUpperCase() + ism.slice(1).toLowerCase();
+                p.textContent = "Ism " + chiroyliIsm + ",Uzunligi:" + ism.length
+            }
+        }
+    </script>
+</body>
+</html>

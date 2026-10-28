@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h2>Parol tekshirgichi</h2>
+    <input type="password" id="parolInput" placeholder="Parol yozing">
+    <button onclick="parolTekshir()">Tekshirish</button>
+    <p id="javob"></p>
+
+    <script>
+        function parolTekshir(){
+            let parol = document.getElementById("parolInput").value;
+            let p = document.getElementById("javob")
+
+            if (parol.includes(" ")){
+                p.textContent = "Parolda bo'sh joy bo'lmasligi kerak"
+            } else if (parol.length < 8){
+                p.textContent = "Zaif";
+            } else {
+                p.textContent = "Yaxshi"
+            }
+        }
+    </script>
+
+</body>
+</html>
