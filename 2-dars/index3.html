@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3-masala</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        button{
+            background-color: rgb(5, 32, 96);
+            color: rgb(246, 175, 175);
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn-alm">Almashtirish</button>
+    
+    <script>
+        let saqlanganRang = localStorage.getItem("tema");
+        
+        if (saqlanganRang) {
+            document.bgColor = saqlanganRang;
+        }
+
+        document.getElementById("btn-alm").onclick = function(){
+            if(document.bgColor == "black"){
+                document.bgColor = "white";
+                localStorage.setItem("tema", "white");
+            } else {
+                document.bgColor = "black";
+                localStorage.setItem("tema", "black");
+            }
+        }
+    </script>
+</body>
+</html>

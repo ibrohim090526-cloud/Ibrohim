@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>1-masala. Familiya va yosh</h3>
+    <input type="text" id="famInp" placeholder="Familingizni kiriting">
+    <input type="number" id="yoshInp" placeholder="Yoshingizni kiriting">
+    <button onclick="saqlash()">Saqlash</button>
+    <p id="natija"></p>
+
+
+    <script>
+        let saqlanganFamiliya = localStorage.getItem("familiya");
+        let saqlanganYosh = localStorage.getItem("yosh");
+
+        if (saqlanganFamiliya && saqlanganYosh){
+            document.getElementById("natija").innerText = "Familiya: " + saqlanganFamiliya + ", Yosh; " + saqlanganYosh;
+        }
+
+        function saqlash(){
+            let familiya = document.getElementById("famInp").value;
+            let yosh = document.getElementById("yoshInp").value;
+
+            localStorage.setItem("familiya", familiya);
+            localStorage.setItem("yosh", yosh);
+
+            document.getElementById("natija").innerHTML = "Familiya: " + familiya + ", Yosh: " + yosh;
+            
+        }
+    </script>
+</body>
+</html>

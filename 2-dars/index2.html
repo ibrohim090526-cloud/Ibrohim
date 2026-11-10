@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>2-masala. Bosishlar sangichi</h3>
+
+    <h2 id="hisoblagich">0</h2>
+    <button onclick="oshirish()">Bosish</button>
+    <button onclick="nolgaTushirish()">Nolga tushurish</button>
+
+    <script>
+        let sanoq = localStorage.getItem("bosishSoni");
+
+        if (sanoq === null){
+            sanoq = 0;
+        } else{
+            sanoq = Number(sanoq)
+        }
+
+        document.getElementById("hisoblagich").innerText = sanoq;
+
+        function oshirish(){
+            sanoq = sanoq + 1;
+            document.getElementById("hisoblagich").innerText = sanoq;
+            localStorage.setItem("bosishSoni", sanoq);
+        }
+
+        function nolgaTushirish(){
+            sanoq = 0
+            document.getElementById("hisoblagich").innerText = sanoq;
+            localStorage.setItem("bosishSoni", sanoq)
+        }
+
+    </script>
+</body>
+</html>

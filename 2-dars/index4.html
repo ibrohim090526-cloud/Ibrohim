@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>4-masala.Sessiya xabari</h3>
+
+    <input type="text" id="sessiyaInp" placeholder="Mant kiriting">
+    <button onclick="eslabQol()">Eslab qol</button>
+
+    <script>
+        let saqlanganMatn = sessionStorage.getItem("sessiyaMatn");
+        if (saqlanganMatn){
+            document.getElementById("sessiyaInp").value = saqlanganMatn;
+        }
+
+        function eslabQol(){
+            let matn = document.getElementById("sessiyaInp").value;
+            sessionStorage.setItem("sessiyaMatn", matn);
+            alert("Matn sessionStorage ga saqlandi!")
+        }
+    </script>
+</body>
+</html>

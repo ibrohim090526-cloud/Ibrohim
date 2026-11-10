@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <title>Boshlang'ich DOM</title>
+</head>
+<body>
+
+  <!-- Profil qismi -->
+  <div id="user-profile">
+    <h1 id="username">Ali Valiyev</h1>
+    <p class="status">Faol foydalanuvchi</p>
+  </div>
+
+  <!-- Mahsulotlar ro'yxati -->
+  <div id="shop">
+    <h2 class="title">Mahsulotlar:</h2>
+    <ul id="product-list">
+      <li class="item">Telefon</li>
+      <li class="item">Noutbuk</li>
+      <li class="item">Quloqchin</li>
+    </ul>
+  </div>
+
+  <!-- Tugmalar -->
+  <button id="btn-save">Saqlash</button>
+  <button class="btn">Bekor qilish</button>
+  <button class="btn">Chiqish</button>
+
+  <script>
+    let profil = document.getElementById("username");
+    console.log(profil);
+
+    let saqlash = document.getElementById("btn-save");
+    console.log (saqlash)
+
+    let item = document.querySelector(".item");
+    console.log(item)
+
+    let statuss = document.querySelector(".status").textContent;
+    console.log(statuss)
+
+    let itemlar = document.querySelectorAll(".item");
+    console.log(itemlar)
+
+    let bola = document.getElementById("product-list");
+    console.log (bola.firstElementChild)
+
+    let btn = document.querySelectorAll("button");
+    console.log (btn)
+
+    let btnn = document.querySelectorAll(".btn")
+    console.log(btnn)
+
+    let qoshni  = document.querySelectorAll(".item");
+    console.log (qoshni[1].nextElementSibling)
+
+    let baskett = document.querySelector('#basket');
+    console.log(baskett)
+
+  </script>
+</body>
+</html>
