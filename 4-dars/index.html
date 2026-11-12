@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+     <style>
+          .task{
+               background-color: wheat;
+          }
+         .task1{
+          background-color: aqua;
+         }
+         .task2{
+          background-color: blueviolet;
+          font-size: 25px;
+         }
+         .dam-olish{background-color: green;}
+     </style>
+</head>
+<body>
+     <h1 id="title">Mening vazifalarim</h1>
+     <p class="info">Bugungi reja</p>
+     <ul id="list">
+          <li class="task">HTML o'rganish</li>
+          <li class="task">CSS o'rganish</li>
+          <li class="task">JavaScript o'rganish</li>
+          <li class="task">Dam olish</li>
+     </ul>
+     <p class="info">Eslatma: har kuni mashq qiling</p>
+
+<script>
+    document.getElementById("title").textContent = "Mening kunlik rejam"
+
+    let rang = document.querySelectorAll(".info")
+    for(i = 0; i < rang.length; i++){
+        rang[i].style.color = "gray"
+    }
+
+    document.getElementById("list").firstElementChild.classList.add("highlight")
+    document.getElementById("list").lastElementChild.classList.add("done")
+
+    let log = document.getElementById("list").textContent;
+    console.log(log)
+
+    let ikki = document.querySelector("task").nextElementSibling.
+    ikki. nextElementSibling.classList.add("hidden");
+
+    let ota = document.querySelector("task").parentElement;
+    ota.style.border = "2px solid black"
+
+
+
+
+</script>
+
+
+
+
+
