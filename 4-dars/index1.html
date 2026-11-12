@@ -87,6 +87,34 @@
         }
     }
 
+    //5-qism
+    //1.
+    let cardl = document.querySelectorAll(".card");
+
+    for (let i =0; i < cardl.length; i++){
+        if(i % 2 !== 0){
+            cardl[i].style.backgroundColor = "lightgray"
+        }
+    }
+
+    //2.
+    let cardla = document.querySelectorAll(".card");
+    let maxPrice = 0;
+    let maxCardIndex = 0;
+
+    for (let i = 0; i < cardla.length; i++){
+        let priceElement = cardla[i].querySelector(".price");
+        let priceValue = Number (priceElement.textContent);
+
+        if (priceValue > maxPrice){
+            maxPrice = priceValue;
+            maxCardIndex = i;
+        }
+    }
+
+    cardla[maxCardIndex].style.border = "3px solid red"
+
+
 
   </script>
 </body>
