@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .card{
+            border: 2px solid black;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            width: 180px;
+        }
+        .kartalar-container{
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .sotilgan{
+            background-color: #ddd;
+            color: #999;
+            border-color: #bbb;
+        }
+    </style>
+</head>
+<body>
+    <h2>1.Ro'yhat</h2>
+    <ul id="royhat"></ul>
+
+    <h2>2. Kartalar</h2>
+    <div class="kartalar-container" id="kartalar2"></div>
+
+    <h2>3.Shartli klass</h2>
+    <div class="kartalar-container" id="kartalar3"></div>
+
+    <script>
+        let kitoblar = [
+            { nomi: "O'tkan kunlar", muallifi: "Abdulla Qodiriy", narxi: 45000, mavjud: true},
+            { nomi: "Mehrobdan chayon", muallifi: "Abdulla Qodiriy", narxi: 40000, mavjud: false },
+            { nomi: "Shum bola", muallifi: "G'afur G'ulom", narxi: 35000, mavjud: true },
+            { nomi: "Sariq devni minib", muallifi: "Xudoyberdi To'xtaboyev", narxi: 50000, mavjud: false }
+        ]
+
+        let html1 = "";
+        for(let kitob of kitoblar){
+            html1 += `<li>${kitob.nomi}</li>`
+        }
+        document.getElementById("royhat").innerHTML = html1;
+
+        let html2 = "";
+        for(let kitob of kitoblar){
+            html2 += `<div class ="card">
+                          <h3>${kitob.nomi}</h3>
+                          <p>${kitob.muallifi}</p>
+                          <p>${kitob.narxi}so'm</p>
+                       </div>
+                      `;    
+        }
+        document.getElementById("kartalar2").innerHTML = html2;
+
+        let html3 = "";
+        for (let kitob of kitoblar){
+            let qoshimchaKlass = kitob.mavjud ? "" : " sotilgan";
+            html3 += `
+            <div class = "card${qoshimchaKlass}">
+                <h3>${kitob.nomi}</h3>
+                <p>${kitob.muallifi}</p>
+                <p>${kitob.narxi}so'm</p>
+            </div>
+          `
+        }
+        document.getElementById("kartalar3").innerHTML = html3
+    </script>
+</body>
+</html>
