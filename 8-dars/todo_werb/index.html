@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .body-bg{
+            background-color: #252525;
+        }
+        .main-text-night{
+            color: white;
+        }
+        .input-night{
+            background-color: #252525;
+            border: 1px solid white;
+        }
+        .theme{
+            background-color: transparent;
+            border: transparent;
+        }
+        .task-done{
+            text-decoration: line-through;
+            opacity: 0.4;
+        }
+        input{
+            border: 1px solid #6c63ff;
+            border-radius: 5px;
+            padding: 10px;
+            width: 50vw;
+        }
+        input:focus{
+            border-color: 1px solid #6c63ff;
+            outline: none;
+
+        }
+        input::placeholder{
+            color: lightgrey;
+        }
+        #note-type{
+            height: 40px; 
+            border-radius: 5px;
+            background-color:#6c63ff ;
+            border: none;
+            color: white;
+            width: 80px;
+            padding: 0 5px;
+            font-size: 18px;
+        }
+        select:focus{
+            border-color: #6c63ff;
+            outline: none;
+        }
+        body{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 20x;
+        }
+        .input-card{
+            display: flex;
+            gap: 20px;
+            flex-direction: row;
+        }
+        .note-cards{
+            display: flex;
+            flex-direction: column;
+        }
+        .note-card{
+            display: flex;
+            padding-bottom: 20px;
+            padding-top: 20px;
+            justify-content: space-between;
+            align-items: start;
+            width: 50vw;
+            border-bottom: 1px solid rgba(108, 99, 255, 0.35);;
+        }
+        .note-card:last-child{
+            border-bottom: none;
+        }
+        #note-cardd{
+            display: flex;
+            flex-direction: column;
+
+        }
+        .note-card input{
+            width: 50px;
+            height: 20px;
+            padding: 0px;
+            margin: 0px;
+        }
+        .note-card label{
+            margin-left: 0px;
+        }
+        .checbox-label{
+            display: flex;
+            gap: 20px;
+            font-weight: 600;
+            font-size: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <h1 id="title" class="main-text">TODO LIST</h1>
+    <div class="input-card">
+        <input type="text" placeholder="Search note..." class="input-note">
+        <select name="" id="note-type">
+            <option value="all">ALL</option>
+            <option value="complete">Complete</option>
+            <option value="incomplete">Incomplete</option>
+        </select>
+       <button class="theme" id="night-btn"><img src="./assets/icons/night.svg" alt=""></button>
+    </div>
+    <div class="note-cards">
+        <div class="note-card">
+            <input type="checkbox">
+            <label class="main-text">NOTE #1</label>
+            <img src="./assets/icons/edit.svg" alt="EDIT">
+            <img src="./assets/icons/delete.svg" alt="DELETE">
+        </div>
+    </div>
+
+    <script>
+        function switchMode(){
+            document.querySelector("body").classList.toggle("body-bg");
+            let matnlar = document.querySelectorAll(".main-text");
+            for(let matn of matnlar){
+                matn.classList.toggle("main-text-night")
+            }
+            let inputlar = document.querySelectorAll(".input-note")
+            for(let input of inputlar){
+                input.classList.toggle("input-night")
+            }
+            if(document.querySelector("body").classList[0] == "body-bg"){
+                document.getElementById("night-btn").innerHTML = '<img src="./assets/icons/light.svg" alt="">'
+            }else{
+                document.getElementById("night-btn").innerHTML = '<img src="./assets/icons/night.svg" alt="">'
+            }
+        }
+        
+        document.getElementById("night-btn").addEventListener("click", function(){
+            switchMode()
+        })
+
+
+        let tasklar = [
+            {id: 1, nomi: "Uxlash", tarif: "Har kuni kechqurun va abetda uxlash", bajarilganmi: false,davomiyligi: 10},
+            {id: 1, nomi: "Dars qilish", tarif: "Kechqurun IT dan dars qilish, Kodni AI dan qilsh", bajarilganmi: false,davomiyligi: 15},
+            {id: 1, nomi: "Ovqatlanish", tarif: "har kuni 5 mahal ovqatlanish", bajarilganmi: true,davomiyligi: 300},
+        ]
+
+        function tasklarniKorsat(tasklar){
+            let html = ""
+            for(let task of tasklar){
+                if(task.bajarilganmi == true){
+                    html = html +
+                `
+                 <div class="note-card"> 
+                    <div class = "checbox-label">
+                        <input type="checkbox" checked>
+                        <label class="main-text task-done">${task.nomi}</label>
+                    </div>
+                    <div>
+                        <img src="./assets/icons/edit.svg" alt="EDIT">
+                        <img src="./assets/icons/delete.svg" alt="DELETE">
+                    </div>
+                 </div>
+               `
+                }else{
+                    html = html +
+                `
+                  <div class="note-card"> 
+                    <div class = "checbox-label">
+                        <input type="checkbox" >
+                        <label class="main-text ">${task.nomi}</label>
+                    </div>
+                    <div>
+                        <img src="./assets/icons/edit.svg" alt="EDIT">
+                        <img src="./assets/icons/delete.svg" alt="DELETE">
+                    </div>
+                 </div>
+               `
+                }
+                
+            }
+    
+            document.querySelector(".note-cards").innerHTML = html
+        }
+        tasklarniKorsat(tasklar)
+    </script>
+</body>
+</html>
