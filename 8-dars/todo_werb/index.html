@@ -99,7 +99,91 @@
             font-weight: 600;
             font-size: 20px;
         }
+                .empty-box{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top: 30px;
+            gap: 10px;
+        }
+        .empty-box img{
+            width: 220px;
+            height: auto;
+        }
+        .empty-box p{
+            font-size: 18px;
+            font-weight: 500;
+            margin: 0;
+        }
+        #fixed-btn{
+            background-color: transparent;
+            border: none;
+            position: fixed;
+            bottom: 10px;
+            right: 200px;
+        }
+        #add-task-modal{
+            flex-direction: column;
+            gap: 50px;
+            width: 300px;
+            height: 250px;
+            background-color: white;
+            padding: 20px 25px;
+            border-radius: 10px;
+            border: none;
+        }
+        .title-input-wrapper{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        .note-title{
+            font-size: 16px;
+            font-weight: 600;
+        }
+        .add-task-input {
+            width: 300px;
+        }
+        .add-task-description-input{
+            width: 300px;
+        }
+        .modal-buttons-wrapper{
+            margin-top: 60px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .cancel-button{
+            padding: 4px 8px;
+            border: 1px solid #6c63ff;
+            color: #6c63ff;
+            background-color: transparent;
+            border-radius: 3px;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+        }
 
+        .apply-button{
+            padding: 4px 12px;
+            border-radius: 3px;
+            font-size: 13px;
+            font-weight: 500;
+            border: none;
+            background-color: #6c63ff;
+            color: white;
+            cursor: pointer;
+        }
+        dialog::backdrop{
+            background-color: rgba(0, 0, 0,0.5);
+        }
+        .delete-btn{
+            background-color: transparent;
+            border: none;
+        }
+
+       
     </style>
 </head>
 <body>
@@ -121,6 +205,24 @@
             <img src="./assets/icons/delete.svg" alt="DELETE">
         </div>
     </div>
+
+    <dialog id="add-task-modal">
+        <div class="title-input-wrapper">
+            <span class="note-title"> NEW NOTE</span>
+            <input type="text" class="add-task-input" placeholder="Input your note...">
+            <input type="text" class="add-task-description-input" placeholder="Input your descripton...">
+        </div>
+    
+
+        <div class="modal-buttons-wrapper">
+            <button class="cancel-button">Cancel</button>
+            <button class="apply-button">Apply</button>
+
+        </div>
+    </dialog>
+    
+    <button id="fixed-btn"><img src="./assets/icons/add.svg" alt=""></button>
+    
 
     <script>
         function switchMode(){
@@ -144,51 +246,107 @@
             switchMode()
         })
 
+       
+
 
         let tasklar = [
-            {id: 1, nomi: "Uxlash", tarif: "Har kuni kechqurun va abetda uxlash", bajarilganmi: false,davomiyligi: 10},
-            {id: 1, nomi: "Dars qilish", tarif: "Kechqurun IT dan dars qilish, Kodni AI dan qilsh", bajarilganmi: false,davomiyligi: 15},
-            {id: 1, nomi: "Ovqatlanish", tarif: "har kuni 5 mahal ovqatlanish", bajarilganmi: true,davomiyligi: 300},
+            {id: 1, nomi: "Uxlash", tarif: "Har kuni kechqurun va abetda uxlash", bajarilganmi: false},
+            {id: 1, nomi: "Dars qilish", tarif: "Kechqurun IT dan dars qilish, Kodni AI dan qilsh", bajarilganmi: false},
+            {id: 1, nomi: "Ovqatlanish", tarif: "har kuni 5 mahal ovqatlanish", bajarilganmi: true},
         ]
 
         function tasklarniKorsat(tasklar){
             let html = ""
-            for(let task of tasklar){
-                if(task.bajarilganmi == true){
-                    html = html +
+            let index = 0;
+            if(tasklar.length == 0){
+                html = `
+                        <div class="empty-box">
+                            <img src="./assets/img/empty.png" alt="Empty...">
+                            <p class="main-text">Empty...</p>
+                        </div>
                 `
-                 <div class="note-card"> 
-                    <div class = "checbox-label">
-                        <input type="checkbox" checked>
-                        <label class="main-text task-done">${task.nomi}</label>
-                    </div>
-                    <div>
-                        <img src="./assets/icons/edit.svg" alt="EDIT">
-                        <img src="./assets/icons/delete.svg" alt="DELETE">
-                    </div>
-                 </div>
-               `
-                }else{
-                    html = html +
-                `
-                  <div class="note-card"> 
-                    <div class = "checbox-label">
-                        <input type="checkbox" >
-                        <label class="main-text ">${task.nomi}</label>
-                    </div>
-                    <div>
-                        <img src="./assets/icons/edit.svg" alt="EDIT">
-                        <img src="./assets/icons/delete.svg" alt="DELETE">
-                    </div>
-                 </div>
-               `
+            }else{
+                for(let task of tasklar){
+                        html = html +
+                    `
+                     <div class="note-card"> 
+                        <div class = "checbox-label">
+                            <input onchange = "taskniOzgartir(${index})" type="checkbox" ${task.bajarilganmi ? "checked" : ""}>
+                            <label class="main-text ${task.bajarilganmi ? "task-done": ""}">${task.nomi}</label>
+                        </div>
+                        <div>
+                            <img src="./assets/icons/edit.svg" alt="EDIT">
+                            <button onclick = "taskniOchir(${index})" class = "delete-btn"><img src="./assets/icons/delete.svg" alt="DELETE"></button>
+                        </div>
+                     </div>
+                   `
+                   index ++;
+
                 }
                 
             }
     
             document.querySelector(".note-cards").innerHTML = html
         }
-        tasklarniKorsat(tasklar)
+        tasklarniKorsat(tasklar);
+
+
+        function addTask(){
+            const yangiNomi = document.querySelector(".add-task-input").value;
+            const yangiTarif = document.querySelector(".add-task-description-input").value;
+
+            if(yangiNomi != "" && yangiTarif != ""){
+                let yangiId = 1;
+                if(tasklar.length > 0){
+                    yangiId = tasklar[tasklar.length - 1].id +1;
+                }
+            
+
+                const yangiTask = {
+                    id: yangiId,
+                    nomi: yangiNomi,
+                    tarif: yangiTarif,
+                    bajarilganmi: false
+                };
+                
+                //tekshirasiz, bo'sh bo'lmasa qo'shish. If bilan tekshirish.
+                tasklar.push(yangiTask);
+                document.querySelector(".add-task-input").value = "";
+                document.querySelector(".add-task-description-input").value = "";
+                console.log(tasklar);
+                tasklarniKorsat(tasklar);
+                dialog.close();
+            }else{
+                alert("Iltimos, nom va tavsifni kiriting!")
+            }
+
+        }
+
+
+        const dialog = document.getElementById("add-task-modal");
+
+        document.getElementById("fixed-btn").addEventListener("click", function(){
+            dialog.showModal();
+        })
+
+        document.querySelector(".cancel-button").addEventListener("click", function(){
+            dialog.close();
+        })
+
+        document.querySelector(".apply-button").addEventListener("click", function(){
+            addTask();
+        })
+
+        function taskniOchir(index){
+            tasklar.splice(index, 1);
+            tasklarniKorsat(tasklar);
+        }
+        
+        function taskniOzgartir(index){
+            tasklar[index].bajarilganmi = !tasklar[index].bajarilganmi
+            tasklarniKorsat(tasklar);
+        }
+
     </script>
 </body>
 </html>
